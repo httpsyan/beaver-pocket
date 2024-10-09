@@ -1,0 +1,4 @@
+node_modules
+
+resources/ios/**/*
+resources/android/**/*

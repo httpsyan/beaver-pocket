@@ -1,0 +1,7 @@
+{
+  "name": "Beaver Pocket",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
