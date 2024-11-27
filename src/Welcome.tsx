@@ -15,6 +15,7 @@ import {
 import enTranslations from "./assets/locales/en.json";
 import itTranslations from "./assets/locales/it.json";
 import deTranslations from "./assets/locales/de.json";
+import brTranslations from "./assets/locales/de.json";
 
 const Welcome: React.FC = () => {
   const [currentView, setCurrentView] = useState<
@@ -37,12 +38,13 @@ const Welcome: React.FC = () => {
     "🌎 Select your language",
     "🌍 Seleziona la tua lingua",
     "🌍 Wählen Sie Ihre Sprache",
+    "🌍 Escolha seu idioma",
   ];
 
   useEffect(() => {
     // Load translations
     const loadTranslations = async () => {
-      const selectedLanguage = localStorage.getItem("selectedLanguage") || "en";
+      const selectedLanguage = localStorage.getItem("selectedLanguage") || "br";
       try {
         const translationModule = await import(
           `./assets/locales/${selectedLanguage}.json`
@@ -57,7 +59,7 @@ const Welcome: React.FC = () => {
   }, []); // Empty dependency array means this effect runs once on mount
 
   const [selectedLanguage, setSelectedLanguage] = useState(
-    localStorage.getItem("selectedLanguage") || "en"
+    localStorage.getItem("selectedLanguage") || "br"
   );
 
   // Translations
@@ -90,6 +92,7 @@ const Welcome: React.FC = () => {
     { code: "en", name: "English", translations: enTranslations },
     { code: "it", name: "Italiano", translations: itTranslations },
     { code: "de", name: "Deutsch", translations: deTranslations },
+    { code: "br", name: "Portugues", translations: brTranslations },
   ];
 
   const updateLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -298,7 +301,11 @@ const Welcome: React.FC = () => {
         <div className="flex items-center justify-center mt-[5em]">
           <div className="sm:w-[32em] mx-10 rounded-3xl">
             <div className="pt-2">
-            <img src="./imgs/icon.png" alt="Beaver Notes Icon" className="w-40 h-40 mx-auto rounded-full"/>
+              <img
+                src="./imgs/icon.png"
+                alt="Beaver Notes Icon"
+                className="w-40 h-40 mx-auto rounded-full"
+              />
             </div>
             <h3 className="text-center">
               {" "}
@@ -542,7 +549,7 @@ const Welcome: React.FC = () => {
               <div className="w-auto px-10 mt-2 rounded-xl p-2 bg-[#E6E6E6] dark:bg-[#383737]">
                 <label htmlFor="file">
                   <p className="text-center text-gray-800 dark:text-gray-300">
-                  {translations.welcome.import || "-"}
+                    {translations.welcome.import || "-"}
                   </p>
                 </label>
                 <input

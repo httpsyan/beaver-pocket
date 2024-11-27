@@ -543,7 +543,7 @@ const Settings: React.FC = () => {
   useEffect(() => {
     // Load translations
     const loadTranslations = async () => {
-      const selectedLanguage = localStorage.getItem("selectedLanguage") || "en";
+      const selectedLanguage = localStorage.getItem("selectedLanguage") || "br";
       try {
         const translationModule = await import(
           `./assets/locales/${selectedLanguage}.json`
@@ -558,7 +558,7 @@ const Settings: React.FC = () => {
   }, []); // Empty dependency array means this effect runs once on mount
 
   const [selectedLanguage, setSelectedLanguage] = useState(
-    localStorage.getItem("selectedLanguage") || "en"
+    localStorage.getItem("selectedLanguage") || "br"
   );
 
   const languages = [
